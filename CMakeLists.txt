@@ -59,8 +59,6 @@ rosbuild_add_executable(arm_joint_torque_control_test examples/arm_joint_torque_
 #static joint states publisher
 rosbuild_add_executable(static_joint_publisher src/static_joint_publisher.cpp)
 
-
-
 #depricated
 rosbuild_add_executable(base_command_republisher src/base_command_republisher.cpp)
 
