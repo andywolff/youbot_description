@@ -10,7 +10,7 @@
 		</contributor>
 		<created>2011-03-30T16:40:51.721701</created>
 		<modified>2011-03-30T16:40:51.721717</modified>
-		<unit meter="0.01" name="centimeter"/>
+		<unit meter="1" name="meter"/>
 		<up_axis>Z_UP</up_axis>
 	</asset>
 	<library_effects>
@@ -130,6 +130,7 @@
 				<rotate sid="rotateY">0 1 0 -0.00000</rotate>
 				<rotate sid="rotateX">1 0 0 0.00000</rotate>
 				<scale sid="scale">0.02702 0.02702 0.02702</scale>
+				<!--<scale sid="scale">02.702 02.702 02.702</scale>-->
 				<instance_geometry url="#Cylinder_007-Geometry">
 					<bind_material>
 						<technique_common>
