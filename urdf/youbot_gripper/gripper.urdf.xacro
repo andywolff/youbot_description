@@ -40,6 +40,9 @@
 				</geometry>
 			</collision>
 		</link>
+		<gazebo reference = "${name}_palm_link">
+			<material>Black</material>
+		</gazebo>
 
 		
 		
@@ -77,6 +80,9 @@
 				</geometry>
 			</collision>
 		</link>
+		<gazebo reference = "${name}_finger_link_l">
+			<material>Black</material>
+		</gazebo>
 
                <joint name="${name}_finger_joint_r" type="prismatic">
 			<origin xyz="0.004 -0.008 0.046" rpy="0 0 0" />
@@ -111,6 +117,9 @@
 				</geometry>
 			</collision>
 		</link>
+		<gazebo reference = "${name}_finger_link_r">
+			<material>Black</material>
+		</gazebo>
 
 		
 		<!-- extensions -->

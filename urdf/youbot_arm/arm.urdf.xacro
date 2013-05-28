@@ -45,6 +45,9 @@
 			</collision>			
 			
 		</link>
+		<gazebo reference = "${name}_link_0">
+			<material>DarkGrey</material>
+		</gazebo>
 
 		<!-- joint between arm_0_link and arm_1_link -->
 		<joint name="${name}_joint_1" type="revolute">
@@ -88,6 +91,9 @@
 				</geometry>
 			</collision>		
 		</link>
+		<gazebo reference = "${name}_link_1">
+			<material>Orange</material>
+		</gazebo>
 
 		<!-- joint between arm_1_link and arm_2_link -->	
 		<joint name="${name}_joint_2" type="revolute">
@@ -124,6 +130,9 @@
 				</geometry>
 			</collision>
 		</link>
+		<gazebo reference = "${name}_link_2">
+			<material>Orange</material>
+		</gazebo>
 
 		<!-- joint between arm_2_link and arm_3_link -->	
 		<!--<joint name="${name}_joint_3" type="revolute">
@@ -168,6 +177,9 @@
 				</geometry>
 			</collision>
 		</link>	
+		<gazebo reference = "${name}_link_3">
+			<material>Orange</material>
+		</gazebo>
 
 		<!-- joint between arm_3_link and arm_4_link -->
 		<joint name="${name}_joint_4" type="revolute">
@@ -204,6 +216,9 @@
 				</geometry>
 			</collision>
 		</link>
+		<gazebo reference = "${name}_link_4">
+			<material>Orange</material>
+		</gazebo>
 
 		<!-- joint between arm_4_link and arm_5_link -->
 		<joint name="${name}_joint_5" type="revolute">
@@ -239,6 +254,9 @@
 				</geometry>
 			</collision>
 		</link>
+		<gazebo reference = "${name}_link_5">
+			<material>DarkGrey</material>
+		</gazebo>
 
 		<!-- extensions -->
 		<xacro:youbot_arm_gazebo name="${name}" />

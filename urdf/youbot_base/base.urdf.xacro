@@ -282,6 +282,9 @@
                   			iyy="0.015218160428" iyz="-0.000004273467" izz="0.011763977943" />
       				</inertial>
    		</link>
+		<gazebo reference = "caster_link_br">
+			<material>Orange</material>
+		</gazebo>
 
 		<joint name="wheel_joint_br" type="continuous">
       			<axis xyz="0 1 0" />
@@ -315,6 +318,9 @@
         	       		</geometry>
       			</collision>
     		</link>
+		<gazebo reference = "wheel_link_br">
+			<material>Orange</material>
+		</gazebo>
 
 	<!-- extensions -->
 		<xacro:youbot_base_gazebo />

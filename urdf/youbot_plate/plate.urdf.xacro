@@ -37,6 +37,9 @@
 				</geometry>
 			</collision>
 		</link>
+		<gazebo reference = "${name}_link">
+			<material>DarkGrey</material>
+		</gazebo>
 
 		<!-- extensions -->
 		
