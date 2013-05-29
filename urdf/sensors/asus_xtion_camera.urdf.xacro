@@ -23,6 +23,8 @@
   </xacro:macro>
     
   <xacro:macro name="asus_xtion_camera" params="name parent *origin tilt">
+
+
   	<link name="${name}_foot_link">
       <inertial>
         <mass value="0.05" />
@@ -80,9 +82,9 @@
     <joint name="asus_xtion_tilt_joint" type="fixed">
      	<parent link="${name}_foot_link"/>
      	<child link="${name}_tilt_link"/>
-     	<!--<axis xyz="0 1 0"/>-->
-      	<origin xyz="0 0 0.0075" rpy="0 ${tilt} 0"/>
-		<!--<limit effort="100" lower="-0.541052068" upper="0.541052068" velocity="1.0"/>-->
+   	<!--<axis xyz="0 1 0"/>-->
+    	<origin xyz="0 0 0.0075" rpy="0 ${tilt} 0"/>
+	<!--<limit effort="100" lower="-0.541052068" upper="0.541052068" velocity="1.0"/>-->
     </joint>
     
     
@@ -115,7 +117,6 @@
       <child link="${name}_camera"/>
     </joint>
     
-
     <xacro:asus_xtion_eye suffix="depth" parent="${name}">
 		<origin xyz="${eye_x_offset} ${eye_y_offset - 0.02} 0" rpy="0 0 0" />
 	</xacro:asus_xtion_eye>
