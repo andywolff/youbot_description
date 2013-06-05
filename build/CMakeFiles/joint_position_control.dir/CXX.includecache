@@ -17,6 +17,8 @@ pr2_controller_interface/controller.h
 -
 brics_actuator/JointPositions.h
 ../include/brics_actuator/JointPositions.h
+pr2_mechanism_model/joint.h
+-
 
 /home/adamj2010/ros-groovy/devel/include/brics_actuator/JointPositions.h
 string

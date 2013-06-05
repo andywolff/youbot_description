@@ -45,11 +45,13 @@
 #include <control_toolbox/pid.h>
 #include <pr2_controller_interface/controller.h>
 #include "brics_actuator/JointPositions.h"
+#include <pr2_mechanism_model/joint.h>
 
 namespace youbotcontroller {
 
 class JointPositionController : public pr2_controller_interface::Controller {
 public:
+	pr2_mechanism_model::RobotState *robotPtr;
 
 	JointPositionController();
 	~JointPositionController();
@@ -61,7 +63,7 @@ public:
 
 private:
 	ros::NodeHandle nodeHandle;
-	pr2_mechanism_model::RobotState *robotPtr;
+	
 	std::vector<pr2_mechanism_model::JointState*> joints;
 	std::vector<control_toolbox::Pid> pids;
 	ros::Time lastTime;

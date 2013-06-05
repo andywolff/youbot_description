@@ -4,6 +4,7 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface">
 
   <gazebo>
+  <!--
     <controller:gazebo_ros_controller_manager name="gazebo_ros_controller_manager" plugin="libgazebo_ros_controller_manager.so">
       <alwaysOn>true</alwaysOn>
       <updateRate>1000.0</updateRate>
@@ -23,7 +24,7 @@
       <dischargeVoltage>15.52</dischargeVoltage>
       <chargeVoltage>16.41</chargeVoltage>
     </controller:gazebo_ros_power_monitor>
-
+  -->
   
 
   </gazebo>
