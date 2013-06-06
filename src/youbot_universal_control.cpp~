@@ -408,11 +408,4 @@ namespace controller {
     }
 } // end of the namespace
 
-
-/// Register controller to pluginlib
-/*
-PLUGINLIB_DECLARE_CLASS(my_controller_pkg,MyControllerPlugin, 
-                         my_controller_ns::MyControllerClass, 
-                         pr2_controller_interface::Controller)*/
-
 PLUGINLIB_DECLARE_CLASS(youbot_description, YouBotUniversalController, controller::YouBotUniversalController, pr2_controller_interface::Controller)

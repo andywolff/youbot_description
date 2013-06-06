@@ -7,5 +7,8 @@
 
 	<!-- start robot_state_publisher -->
   <!--	<node pkg="robot_state_publisher" type="state_publisher" name="rob_st_pub" />-->
+	
+    <!-- the semantic description that corresponds to the URDF -->
+    <param name="robot_description_semantic" textfile="$(find youbot_5)/config/youbot.srdf" />
 
 </launch>
