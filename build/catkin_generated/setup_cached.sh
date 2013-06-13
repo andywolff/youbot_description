@@ -13,6 +13,6 @@ export CMAKE_PREFIX_PATH="/home/adamj2010/ros-groovy/rosbuild/youbot_description
 export CPATH="/home/adamj2010/ros-groovy/rosbuild/youbot_description/build/devel/include:$CPATH"
 export LD_LIBRARY_PATH="/home/adamj2010/ros-groovy/rosbuild/youbot_description/build/devel/lib:$LD_LIBRARY_PATH"
 export PATH="/home/adamj2010/ros-groovy/rosbuild/youbot_description/build/devel/bin:$PATH"
-export PKG_CONFIG_PATH="/home/adamj2010/ros-groovy/rosbuild/youbot_description/build/devel/lib/pkgconfig:/opt/ros/groovy/lib/pkgconfig:/home/adamj2010/ros-groovy/devel/lib/pkgconfig"
+export PKG_CONFIG_PATH="/home/adamj2010/ros-groovy/rosbuild/youbot_description/build/devel/lib/pkgconfig:/opt/ros/groovy/lib/pkgconfig:/home/adamj2010/ros-groovy/devel/lib/pkgconfig:/home/adamj2010/ros-groovy/devel/lib/pkgconfig"
 export PYTHONPATH="/home/adamj2010/ros-groovy/rosbuild/youbot_description/build/devel/lib/python2.7/dist-packages:$PYTHONPATH"
 export ROS_PACKAGE_PATH="/home/adamj2010/ros-groovy/rosbuild/youbot_description:/opt/ros/groovy/share:/opt/ros/groovy/stacks"
