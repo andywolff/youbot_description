@@ -7,38 +7,33 @@
 
 	<xacro:macro name="youbot_arm_gazebo" params="name">
 
-		<gazebo reference="${name}_link_0">
-			<material value="youbot/DarkGrey" />
+		<gazebo>
+		  <link name="${name}_link_0">
 			<gravity>false</gravity>
-			
+		  </link>	
 		</gazebo>
 
 		<gazebo reference="${name}_link_1">
-			<!--<material value="youbot/Orange" />-->
 			<gravity>false</gravity>
 			
 		</gazebo>
 
 		<gazebo reference="${name}_link_2">
-			<!--<material value="youbot/Orange" />-->
 			<gravity>false</gravity>
 			
 		</gazebo>
 
 		<gazebo reference="${name}_link_3">
-			<!--<material value="youbot/Orange" />-->
 			<gravity>false</gravity>
 			
 		</gazebo>
 
 		<gazebo reference="${name}_link_4">
-			<!--<material value="youbot/Orange" />-->
 			<gravity>false</gravity>
 			
 		</gazebo>
 
 		<gazebo reference="${name}_link_5">
-			<!--<material value="youbot/DarkGrey" />-->
 			<gravity>false</gravity>
 			
 		</gazebo>

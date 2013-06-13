@@ -75,6 +75,9 @@ bool JointPositionController::init(pr2_mechanism_model::RobotState *robotPtr, ro
 
     ROS_INFO("Initializing joint position control...\n");
 
+
+
+
     // Gets all of the joint pointers from the RobotState to a joints vector
     XmlRpc::XmlRpcValue jointNames;
     if (!nodeHandle.getParam("joints", jointNames))
@@ -92,6 +95,7 @@ bool JointPositionController::init(pr2_mechanism_model::RobotState *robotPtr, ro
     for (unsigned int i = 0; i < static_cast<unsigned int> (jointNames.size()); ++i)
     {
         XmlRpcValue &name = jointNames[i];
+	std::cout << ((std::string)name).c_str() << "\n";
         if (name.getType() != XmlRpcValue::TypeString)
         {
             ROS_ERROR("Array of joint names should contain all strings.  (namespace: %s)", nodeHandle.getNamespace().c_str());
@@ -108,13 +112,23 @@ bool JointPositionController::init(pr2_mechanism_model::RobotState *robotPtr, ro
         joints.push_back(jointStatePtr);
     }
 
+	std::cout << "Number of joints in namespace " << nodeHandle.getNamespace().c_str() << " is " << joints.size() << std::endl;
+	for(unsigned int i = 0; i < (unsigned int)joints.size(); i++)
+	{
+		ROS_WARN("Please make sure you have ran youbot_oodl before the controllers!");     
+		ROS_INFO("Setting joint as calibrated!");
+		joints[i]->calibrated_ = true;
+		ROS_INFO("Joint calibrated!");
+	}
+
     // Ensures that all the joints are calibrated.
     for (unsigned int i = 0; i < joints.size(); ++i)
     {
         if (!joints[i]->calibrated_)
         {
             ROS_ERROR("Joint %s was not calibrated (namespace: %s)", joints[i]->joint_->name.c_str(), nodeHandle.getNamespace().c_str());
-            return false;
+	    ROS_WARN("Assuming they are calibrated...");
+            //return false;
         }
     }
 
@@ -125,8 +139,10 @@ bool JointPositionController::init(pr2_mechanism_model::RobotState *robotPtr, ro
     std::string gainsNS;
 
     if (!nodeHandle.getParam("gains", gainsNS))
+    {
+	ROS_INFO("Acquired gains.");
         gainsNS = nodeHandle.getNamespace() + "/gains";
-
+    }
     ROS_INFO("gains: %s\n", gainsNS.c_str());
 
     pids.resize(joints.size());
@@ -260,5 +276,5 @@ void JointPositionController::positionCommand(const brics_actuator::JointPositio
 }
 } // end of the namespace
 
-PLUGINLIB_DECLARE_CLASS(youbot_description, JointPositionController, youbotcontroller::JointPositionController, pr2_controller_interface::Controller)
+PLUGINLIB_EXPORT_CLASS( youbotcontroller::JointPositionController, pr2_controller_interface::Controller)
 

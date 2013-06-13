@@ -26,7 +26,9 @@
   <depend package="youbot_oodl"/>
 
   <export>
-    <pr2_controller_interface plugin="${prefix}/controller_plugins.xml" />
+    <pr2_controller_interface plugin="${prefix}/controller_plugins.xml" />  
+  </export>
+  <export>
     <cpp cflags="-I${prefix}/include" />
   </export>
 
