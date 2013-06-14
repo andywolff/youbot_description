@@ -3,7 +3,8 @@
 
 	<!-- common properties -->
 	<property name="M_PI" value="3.1415926535897931" />
-        <property name="threshold" value="0.01" />
+        <!--<property name="threshold" value="0.01" />-->
+	<property name="threshold" value="0.05" />
 
 	<!-- arm limits positions (deg) -->
 	<property name="joint_1_limit" value="${M_PI * (169 + 169) / 180}" />

@@ -104,19 +104,19 @@ namespace controller {
             joints.push_back(jointStatePtr);
         }
 
-	for(unsigned int i = 0; i < joints.size(); i++)
-	{
-		ROS_WARN("Please make sure you have ran youbot_oodl before the controllers!");     
-		ROS_INFO("Setting joint as calibrated!");
-		joints[i]->calibrated_ = true;
-	}
+        ROS_WARN("Please make sure you have ran youbot_oodl before the controllers!");
+	      for(unsigned int i = 0; i < joints.size(); i++)
+	      {
+		      ROS_INFO("Setting joint %s as calibrated!", ((std::string)jointNames[i]).c_str());
+		      joints[i]->calibrated_ = true;
+	      }
 
         // Ensures that all the joints are calibrated.
         for (unsigned int i = 0; i < joints.size(); ++i) {
             if (!joints[i]->calibrated_) {
 
-		//ROS_ERROR("Joint %s was not calibrated (namespace: %s)", joints[i]->joint_->name.c_str(), nodeHandle.getNamespace().c_str());
-                //return false;
+		            ROS_ERROR("Joint %s was not calibrated (namespace: %s)", joints[i]->joint_->name.c_str(), nodeHandle.getNamespace().c_str());
+                return false;
             }
         }
 
