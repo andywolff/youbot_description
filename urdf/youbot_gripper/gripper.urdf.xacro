@@ -123,10 +123,9 @@
 			<material>Black</material>
 		</gazebo>
 
-
-		<!-- asus xtion camera -->
-		<xacro:asus_xtion_camera name="openni" parent="gripper_palm_link" tilt="0.0">
-		  <origin xyc="0.01 0.0 0.0" rpy="0 ${M_PI/2} 0.0" />
+                <!-- asus xtion camera -->
+		<xacro:asus_xtion_camera name="xtion" parent="xtion_pose" tilt="0.0">
+		  <origin xyc="0.00 0.0 0.0" rpy="0 0 0" />
                 </xacro:asus_xtion_camera>
 		
 		<!-- extensions -->

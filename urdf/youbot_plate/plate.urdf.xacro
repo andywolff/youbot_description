@@ -42,7 +42,26 @@
 		</gazebo>
 
 		<!-- extensions -->
-		
+		<!-- fixed ar marker attached to plate -->
+                <joint name="ar_marker_fixed_joint" type="fixed">
+			<origin xyz="0 0 0.025" rpy="0 0 0" />
+			<parent link="${name}_link" />
+			<child link="ar_marker_fixed" />
+		</joint>
+		<link name="ar_marker_fixed">
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<box size="0.08 0.08 0.003" />
+				</geometry>
+			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<box size="0.08 0.08 0.003" />
+				</geometry>
+			</collision>
+		</link>		
 	
 	</xacro:macro>
 
