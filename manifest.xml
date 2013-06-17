@@ -17,6 +17,7 @@
   <depend package="pluginlib"/>
   <depend package="control_toolbox"/>
   <depend package="pr2_controllers_msgs" />
+  <depend package="pr2_mechanism_model"/>
   <depend package="realtime_tools" />
   <depend package="orocos_kdl"/>
   <depend package="sensor_msgs"/>
@@ -25,9 +26,11 @@
   <depend package="youbot_oodl"/>
 
   <export>
-    <pr2_controller_interface plugin="${prefix}/controller_plugins.xml" />
-     <cpp cflags="-I${prefix}/include" />
-    </export>
+    <pr2_controller_interface plugin="${prefix}/controller_plugins.xml" />  
+  </export>
+  <export>
+    <cpp cflags="-I${prefix}/include" />
+  </export>
 
 </package>
 

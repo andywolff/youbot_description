@@ -8,8 +8,6 @@
 	<include filename="$(find youbot_description)/urdf/youbot_gripper/gripper.transmission.xacro" />
 	<include filename="$(find youbot_description)/urdf/youbot_gripper/limits.urdf.xacro" />
 
-	<include filename="$(find youbot_description)/urdf/sensors/asus_xtion_camera.urdf.xacro" />
-
 	<xacro:macro name="youbot_gripper" params="parent name *origin">
 
 		<!-- joint between arm_7_link and sdh_palm_link -->
@@ -31,7 +29,7 @@
 				<geometry>
 					<mesh filename="package://youbot_description/meshes/youbot_gripper/palm.dae" />
 				</geometry>
-				<material name="youbot/Black" />
+				<material name="Black" />
 			</visual>
 			
 			<collision>
@@ -42,9 +40,6 @@
 				</geometry>
 			</collision>
 		</link>
-		<gazebo reference = "${name}_palm_link">
-			<material>Black</material>
-		</gazebo>
 
 		
 		
@@ -71,7 +66,7 @@
 				<geometry>
 					<mesh filename="package://youbot_description/meshes/youbot_gripper/finger.dae" />
 				</geometry>
-				<material name="youbot/Black" />
+				<material name="Black" />
 			</visual>
 			
 			<collision>
@@ -82,9 +77,6 @@
 				</geometry>
 			</collision>
 		</link>
-		<gazebo reference = "${name}_finger_link_l">
-			<material>Black</material>
-		</gazebo>
 
                <joint name="${name}_finger_joint_r" type="prismatic">
 			<origin xyz="0.004 -0.008 0.046" rpy="0 0 0" />
@@ -108,7 +100,7 @@
 				<geometry>
 					<mesh filename="package://youbot_description/meshes/youbot_gripper/finger.dae" />
 				</geometry>
-				<material name="youbot/Black" />
+				<material name="Black" />
 			</visual>
 			
 			<collision>
@@ -119,14 +111,7 @@
 				</geometry>
 			</collision>
 		</link>
-		<gazebo reference = "${name}_finger_link_r">
-			<material>Black</material>
-		</gazebo>
 
-                <!-- asus xtion camera -->
-		<xacro:asus_xtion_camera name="xtion" parent="xtion_pose" tilt="0.0">
-		  <origin xyc="0.00 0.0 0.0" rpy="0 0 0" />
-                </xacro:asus_xtion_camera>
 		
 		<!-- extensions -->
 		<xacro:youbot_gripper_gazebo name="${name}" />

@@ -131,27 +131,31 @@
     </collision>
   </link>
   <gazebo reference="base_laser_front_link">
-    <sensor:ray name="base_laser_front">
-      <rayCount>640</rayCount>
-      <rangeCount>640</rangeCount>
-      <laserCount>1</laserCount>
-      <origin>0.0 0.0 0.0</origin>
-      <displayRays>false</displayRays>
-      <minAngle>-119.748179182</minAngle>
-      <maxAngle>119.748179182</maxAngle>
-      <minRange>0.05</minRange>
-      <maxRange>5.6</maxRange>
-      <resRange>0.36</resRange>
-      <updateRate>10</updateRate>
-      <controller:gazebo_ros_laser name="gazebo_ros_base_laser_front_controller" plugin="libgazebo_ros_laser.so">
-        <gaussianNoise>0.000</gaussianNoise>
-        <alwaysOn>true</alwaysOn>
-        <updateRate>10</updateRate>
-        <topicName>scan_front</topicName>
-        <frameName>/base_laser_front_link</frameName>
-        <interface:laser name="gazebo_ros_base_laser_front_iface"/>
-      </controller:gazebo_ros_laser>
-    </sensor:ray>
+    <sensor name="base_laser_front" type="ray">
+      <ray>
+	<scan>
+	      <rayCount>640</rayCount>
+	      <rangeCount>640</rangeCount>
+	      <laserCount>1</laserCount>
+	      <origin>0.0 0.0 0.0</origin>
+	      <displayRays>false</displayRays>
+	      <minAngle>-119.748179182</minAngle>
+	      <maxAngle>119.748179182</maxAngle>
+	      <minRange>0.05</minRange>
+	      <maxRange>5.6</maxRange>
+	      <resRange>0.36</resRange>
+	      <updateRate>10</updateRate>
+	      <controller:gazebo_ros_laser name="gazebo_ros_base_laser_front_controller" plugin="libgazebo_ros_laser.so">
+		<gaussianNoise>0.000</gaussianNoise>
+		<alwaysOn>true</alwaysOn>
+		<updateRate>10</updateRate>
+		<topicName>scan_front</topicName>
+		<frameName>/base_laser_front_link</frameName>
+		<interface:laser name="gazebo_ros_base_laser_front_iface"/>
+	      </controller:gazebo_ros_laser>
+	</scan>
+      </ray>
+    </sensor>
   </gazebo>
   <joint name="caster_joint_fl" type="continuous">
     <origin rpy="0 0 0" xyz="0.228 0.158 -0.034"/>

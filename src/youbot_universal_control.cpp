@@ -49,7 +49,6 @@
 #include <youbot_trajectory_action_server/joint_trajectory_action.h>
 
 
-PLUGINLIB_DECLARE_CLASS(youbot_description, YouBotUniversalController, controller::YouBotUniversalController, pr2_controller_interface::Controller)
 
 namespace controller {
 
@@ -74,9 +73,8 @@ namespace controller {
         this->nodeHandle = nodeHandle;
         this->robotPtr = robotPtr;
 
-
-
         ROS_INFO("Initializing joint position control...\n");
+
 
         // Gets all of the joint pointers from the RobotState to a joints vector
         XmlRpc::XmlRpcValue jointNames;
@@ -106,10 +104,18 @@ namespace controller {
             joints.push_back(jointStatePtr);
         }
 
+        ROS_WARN("Please make sure you have ran youbot_oodl before the controllers!");
+	      for(unsigned int i = 0; i < joints.size(); i++)
+	      {
+		      ROS_INFO("Setting joint %s as calibrated!", ((std::string)jointNames[i]).c_str());
+		      joints[i]->calibrated_ = true;
+	      }
+
         // Ensures that all the joints are calibrated.
         for (unsigned int i = 0; i < joints.size(); ++i) {
             if (!joints[i]->calibrated_) {
-                ROS_ERROR("Joint %s was not calibrated (namespace: %s)", joints[i]->joint_->name.c_str(), nodeHandle.getNamespace().c_str());
+
+		            ROS_ERROR("Joint %s was not calibrated (namespace: %s)", joints[i]->joint_->name.c_str(), nodeHandle.getNamespace().c_str());
                 return false;
             }
         }
@@ -225,11 +231,12 @@ namespace controller {
                 {
                     ROS_WARN("Joint %d has unsupported control mode \n", i);
                 }
-
             }
-
         }
-
+    }
+	
+    void YouBotUniversalController::stopping()
+    {
     }
 
     void YouBotUniversalController::updateJointVelocity(double setPoint, pr2_mechanism_model::JointState* joint_state_, control_toolbox::Pid* pid_controller_, const ros::Duration& dt, const int& jointIndex) {
@@ -245,7 +252,6 @@ namespace controller {
 
         double commanded_effort = pid_controller_ -> updatePid(error, dt);
         joint_state_->commanded_effort_ = commanded_effort;
-
     }
 
     void YouBotUniversalController::updateJointTorque(double setPoint, pr2_mechanism_model::JointState* joint_state_, control_toolbox::Pid* pid_controller_, const ros::Duration& dt) {
@@ -408,3 +414,11 @@ namespace controller {
     }
 } // end of the namespace
 
+
+/// Register controller to pluginlib
+/*
+PLUGINLIB_DECLARE_CLASS(my_controller_pkg,MyControllerPlugin, 
+                         my_controller_ns::MyControllerClass, 
+                         pr2_controller_interface::Controller)*/
+
+PLUGINLIB_EXPORT_CLASS( controller::YouBotUniversalController, pr2_controller_interface::Controller)

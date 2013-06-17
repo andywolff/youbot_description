@@ -79,6 +79,7 @@ namespace controller {
         bool init(pr2_mechanism_model::RobotState *robotPtr, ros::NodeHandle &nodeHandle);
         void starting();
         void update();
+	void stopping();
 
     private:
         ros::NodeHandle nodeHandle;

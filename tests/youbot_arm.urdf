@@ -259,27 +259,27 @@
   </link>
   <gazebo reference="arm_link_0">
     <material value="youbot/DarkGrey"/>
-    <turnGravityOff>false</turnGravityOff>
+    <gravity>false</gravity>
   </gazebo>
   <gazebo reference="arm_link_1">
     <!--<material value="youbot/Orange" />-->
-    <turnGravityOff>false</turnGravityOff>
+    <gravity>false</gravity>
   </gazebo>
   <gazebo reference="arm_link_2">
     <!--<material value="youbot/Orange" />-->
-    <turnGravityOff>false</turnGravityOff>
+    <gravity>false</gravity>
   </gazebo>
   <gazebo reference="arm_link_3">
     <!--<material value="youbot/Orange" />-->
-    <turnGravityOff>false</turnGravityOff>
+    <gravity>false</gravity>
   </gazebo>
   <gazebo reference="arm_link_4">
     <!--<material value="youbot/Orange" />-->
-    <turnGravityOff>false</turnGravityOff>
+    <gravity>false</gravity>
   </gazebo>
   <gazebo reference="arm_link_5">
     <!--<material value="youbot/DarkGrey" />-->
-    <turnGravityOff>false</turnGravityOff>
+    <gravity>false</gravity>
   </gazebo>
   <transmission name="arm_trans_1" type="pr2_mechanism_model/SimpleTransmission">
     <actuator name="arm_motor_1"/>
@@ -394,17 +394,17 @@
   </link>
   <gazebo reference="gripper_palm_link">
     <material>Gazebo/Black</material>
-    <turnGravityOff>false</turnGravityOff>
+    <gravity>false</gravity>
     <selfCollide>true</selfCollide>
   </gazebo>
   <gazebo reference="gripper_finger_l_link">
     <material>Gazebo/Black</material>
-    <turnGravityOff>false</turnGravityOff>
+    <gravity>false</gravity>
     <selfCollide>true</selfCollide>
   </gazebo>
   <gazebo reference="gripper_finger_r_link">
     <material>Gazebo/Black</material>
-    <turnGravityOff>false</turnGravityOff>
+    <gravity>false</gravity>
     <selfCollide>true</selfCollide>
   </gazebo>
   <transmission name="gripper_finger_l_trans" type="pr2_mechanism_model/SimpleTransmission">

@@ -45,7 +45,7 @@
 		
 		<link name="${name}_footprint">
       			<inertial>
-        			<mass value="0.0001" />
+        			<mass value="0.1" />
         			<origin xyz="0 0 ${-base_size_z / 2.0}" rpy="0 0 0" />
         			<inertia ixx="1.0" ixy="0.0" ixz="0.0"
                  			iyy="1.0" iyz="0.0" izz="1.0" />
@@ -97,7 +97,7 @@
 		<!-- base laser front -->
                        
     		<xacro:hokuyo_urg04_laser name="${name}_laser_front" parent="${name}" ros_topic="scan_front" update_rate="10" min_angle="-1.57" max_angle="1.57" >
-     			 <origin xyz="0.3 0 -0.03" rpy="3.14 0 0" />
+     			 <origin xyz="0.3 0 -0.03" rpy="0 0 0" />
     		</xacro:hokuyo_urg04_laser>
 		
 	<!-- front left wheel -->		
@@ -282,9 +282,7 @@
                   			iyy="0.015218160428" iyz="-0.000004273467" izz="0.011763977943" />
       				</inertial>
    		</link>
-		<gazebo reference = "caster_link_br">
-			<material>Orange</material>
-		</gazebo>
+
 
 		<joint name="wheel_joint_br" type="continuous">
       			<axis xyz="0 1 0" />
@@ -318,9 +316,6 @@
         	       		</geometry>
       			</collision>
     		</link>
-		<gazebo reference = "wheel_link_br">
-			<material>Orange</material>
-		</gazebo>
 
 	<!-- extensions -->
 		<xacro:youbot_base_gazebo />

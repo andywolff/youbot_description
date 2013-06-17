@@ -46,6 +46,18 @@ rosbuild_add_library(joint_position_control src/joint_position_control.cpp)
 #youbot universal controller: joint space position control, joint velocity control, joint torque control
 rosbuild_add_library(youbot_universal_control src/youbot_universal_control.cpp src/joint_state_observer_gazebo.cpp)
 target_link_libraries(youbot_universal_control youbot_trajectory_action_server)
+
+
+#Testing new library
+rosbuild_add_library( youbot_controllers
+  src/youbot_universal_control.cpp
+  src/joint_state_observer_gazebo.cpp
+  src/joint_position_control.cpp
+)
+target_link_libraries( youbot_controllers youbot_trajectory_action_server )
+
+
+
 rosbuild_add_executable(arm_joint_position_control_test examples/arm_joint_position_control_test.cpp)
 rosbuild_add_executable(arm_joint_velocity_control_test examples/arm_joint_velocity_control_test.cpp)
 rosbuild_add_executable(arm_joint_torque_control_test examples/arm_joint_torque_control_test.cpp)
