@@ -104,7 +104,7 @@ namespace controller {
             joints.push_back(jointStatePtr);
         }
 
-        ROS_WARN("Please make sure you have ran youbot_oodl before the controllers!");
+        ROS_WARN("Please make sure you ran youbot_oodl before the controllers!");
 	      for(unsigned int i = 0; i < joints.size(); i++)
 	      {
 		      ROS_INFO("Setting joint %s as calibrated!", ((std::string)jointNames[i]).c_str());
@@ -159,12 +159,10 @@ namespace controller {
     }
 
     void YouBotUniversalController::executeActionServer(const control_msgs::FollowJointTrajectoryGoalConstPtr& goal, Server* as) {
-        
         if (jointTrajectoryAction != NULL) {
             jointTrajectoryAction->execute(goal, trajectoryServer);
             
         }
-
     }
 
     void YouBotUniversalController::starting() {
@@ -317,7 +315,7 @@ namespace controller {
             if (lookup[j] != -1) {
                 ROS_DEBUG("Joint %s = %f %s, ", torques[lookup[j]].joint_uri.c_str(), torques[lookup[j]].value, torques[lookup[j]].unit.c_str());
                 if (torques[lookup[j]].unit != to_string(si::newton_meter))
-                    ROS_ERROR("Joint %s has the value in the inpcompatible units %s", torques[lookup[j]].joint_uri.c_str(), torques[lookup[j]].unit.c_str());
+                    ROS_ERROR("Joint %s has the value in the incompatible units %s", torques[lookup[j]].joint_uri.c_str(), torques[lookup[j]].unit.c_str());
                 if (!setPoints.empty())
                     setPoints[j] = torques[lookup[j]].value;
             }
@@ -359,7 +357,7 @@ namespace controller {
             if (lookup[j] != -1) {
                 ROS_DEBUG("Joint %s = %f %s, ", velocities[lookup[j]].joint_uri.c_str(), velocities[lookup[j]].value, velocities[lookup[j]].unit.c_str());
                 if (velocities[lookup[j]].unit != to_string(si::radian_per_second))
-                    ROS_ERROR("Joint %s has the value in the inpcompatible units %s", velocities[lookup[j]].joint_uri.c_str(), velocities[lookup[j]].unit.c_str());
+                    ROS_ERROR("Joint %s has the value in the incompatible units %s", velocities[lookup[j]].joint_uri.c_str(), velocities[lookup[j]].unit.c_str());
                 if (!setPoints.empty())
                     setPoints[j] = velocities[lookup[j]].value;
             }
@@ -370,7 +368,7 @@ namespace controller {
     void YouBotUniversalController::positionCommand(const brics_actuator::JointPositions &jointPositions) {
         currentControlMode = YouBotUniversalController::POSITION;
 
-        ROS_DEBUG("Readin the target positions from the brics_actuator::JointPositions message\n");
+        ROS_DEBUG("Reading the target positions from the brics_actuator::JointPositions message\n");
         std::vector <brics_actuator::JointValue> positions = jointPositions.positions;
 
         if (positions.empty()) {
@@ -400,10 +398,10 @@ namespace controller {
                 ROS_DEBUG("Joint %s = %f %s, ", positions[lookup[j]].joint_uri.c_str(), positions[lookup[j]].value, positions[lookup[j]].unit.c_str());
                 if (joints[j]->joint_->type == urdf::Joint::REVOLUTE) {
                     if (positions[lookup[j]].unit != to_string(si::radian))
-                        ROS_ERROR("Joint %s has a value in the inpcompatible units %s, expecting %s", positions[lookup[j]].joint_uri.c_str(), positions[lookup[j]].unit.c_str(), to_string(si::radian).c_str());
+                        ROS_ERROR("Joint %s has a value in the incompatible units %s, expecting %s", positions[lookup[j]].joint_uri.c_str(), positions[lookup[j]].unit.c_str(), to_string(si::radian).c_str());
                 } else if (joints[j]->joint_->type == urdf::Joint::PRISMATIC) {
                     if (positions[lookup[j]].unit != to_string(si::meter))
-                        ROS_ERROR("Joint %s has a value in the inpcompatible units %s, expecting %s", positions[lookup[j]].joint_uri.c_str(), positions[lookup[j]].unit.c_str(), to_string(si::meter).c_str());
+                        ROS_ERROR("Joint %s has a value in the incompatible units %s, expecting %s", positions[lookup[j]].joint_uri.c_str(), positions[lookup[j]].unit.c_str(), to_string(si::meter).c_str());
 
                 }
 

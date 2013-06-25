@@ -274,3 +274,4 @@ void JointPositionController::positionCommand(const brics_actuator::JointPositio
 
 PLUGINLIB_EXPORT_CLASS( youbotcontroller::JointPositionController, pr2_controller_interface::Controller)
 
+

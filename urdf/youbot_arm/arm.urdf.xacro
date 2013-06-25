@@ -257,7 +257,21 @@
 		<gazebo reference = "${name}_link_5">
 			<material>DarkGrey</material>
 		</gazebo>
-
+<!--
+    <joint name="${name}_joint_6_dummy" type="revolute">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <parent link="${name}_link_5"/>
+      <child link="${name}_link_6_dummy"/>
+      <axis xyz="0 0 1"/>
+      <limit effort="1" velocity="${M_PI / 2.0}" lower="0" upper="${2 * M_PI}" />
+    </joint>
+		<link name="${name}_link_6_dummy">
+			<inertial>
+				<mass value="0.001"/>
+				<xacro:link_5_inertia_tensor />
+			</inertial>			
+		</link>
+-->
 		<!-- extensions -->
 		<xacro:youbot_arm_gazebo name="${name}" />
 		<xacro:youbot_arm_transmission name="${name}" />
