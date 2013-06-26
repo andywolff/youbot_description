@@ -73,6 +73,7 @@ int main(int argc, char** argv)
 	}
 
 	int timer = 0;
+  bool unloaded = true;
 
 	ros::AsyncSpinner spinner(4);
 	spinner.start();
@@ -80,22 +81,37 @@ int main(int argc, char** argv)
 	ros::Rate rate(1000.0);
 	
 	ROS_INFO("YouBot controller manager starting!");
+
+  pr2_controller_interface::Controller* check = NULL;
+  
 	while (ros::ok()){
 		//ROS_INFO("BEEP");
-		if(timer < 15000)
-		{
-			cm.update();
-      if(timer % 1000 == 0)
-        std::cout << timer/1000 << "/15 seconds until Controller Timeout!\n"; 
-		}      
+  
+    if(unloaded)
+      check = cm.getControllerByName("arm_1/arm_controller");
 
-		if(timer == 15000)
-			std::cout << "Controller Timeout has been reached!" << "\n";
-		timer++;
+    if(timer < 2000)
+    {
+      if(check != NULL)
+      {
+        unloaded = false;
+      } 
+      cm.update();
+    }
+
+    if(unloaded == false)
+    {
+      timer++;
+    }
+    if(timer == 2000)
+    {
+      ROS_INFO("Arm Controller loaded.");
+    }
+
 		rate.sleep();
 	}
 
-	spinner.stop();
+  spinner.stop();
 
 	return 0;
 }

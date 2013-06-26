@@ -25,10 +25,16 @@
 
 	
 	<!-- Nodes on top of the controllers -->        
+
+<!--  Removed because moveit is not currently being used to control grippper-->
+<!--
   	<node name="gripper_controller_spawner" pkg="pr2_controller_manager" type="spawner" args="arm_1/gripper_controller" />
+-->
 
   	<node name="arm_controller_spawner" pkg="pr2_controller_manager" type="spawner" args="arm_1/arm_controller"/>
 
+  <!-- Removed because moveit is not currently being used to control base-->
+<!--
   	<node name="base_controllers_spawner" pkg="pr2_controller_manager" type="spawner" output="screen" args="base_controller base_odometry" /> 
-
+-->
 </launch>
