@@ -3,7 +3,7 @@ youbot_description
 
 URDFs for the youbot
 
-for this to build and run, you have to build youbot_oodl first
+for this to build and run, you have to build youbot_common first
 
 depends on pr2_mechanism and pr2_controllers, so do
 

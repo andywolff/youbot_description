@@ -44,7 +44,7 @@
 		<!-- extensions -->
 		<!-- fixed ar marker attached to plate -->
                 <joint name="ar_marker_fixed_joint" type="fixed">
-			<origin xyz="0 0 0.025" rpy="0 0 0" />
+			<origin xyz="0.025 0 0.025" rpy="0 0 0" />
 			<parent link="${name}_link" />
 			<child link="ar_marker_fixed" />
 		</joint>
@@ -52,16 +52,16 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<box size="0.08 0.08 0.003" />
+					<box size="0.11 0.11 0.003" />
 				</geometry>
 			</visual>
-			<collision>
+<!--			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
 					<box size="0.08 0.08 0.003" />
 				</geometry>
 			</collision>
-		</link>		
+-->		</link>		
 	
 	</xacro:macro>
 

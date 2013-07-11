@@ -18,6 +18,9 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 include_directories(	${PROJECT_SOURCE_DIR}/include
 			${PROJECT_SOURCE_DIR}/src)
 
+
+rosbuild_find_ros_package(pr2_controller_manager)
+
 #uncomment if you have defined messages
 #rosbuild_genmsg()
 #uncomment if you have defined services
@@ -59,6 +62,7 @@ target_link_libraries( youbot_controllers youbot_trajectory_action_server )
 
 
 rosbuild_add_executable(arm_joint_position_control_test examples/arm_joint_position_control_test.cpp)
+rosbuild_add_executable(youbot_controller_manager src/youbot_controller_manager.cpp)
 rosbuild_add_executable(arm_joint_velocity_control_test examples/arm_joint_velocity_control_test.cpp)
 rosbuild_add_executable(arm_joint_torque_control_test examples/arm_joint_torque_control_test.cpp)
 

@@ -72,6 +72,7 @@ private:
 	ros::Subscriber subscriber;
 	void updateJoint(double targetValue, pr2_mechanism_model::JointState* joint_state_, control_toolbox::Pid* pid_controller_, const ros::Duration& dt);
 	void positionCommand(const brics_actuator::JointPositions &jointPositions);
+
 };
 
 } // namespace
