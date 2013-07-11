@@ -54,7 +54,7 @@
 			<origin xyz="0.024 0 0.096" rpy="0 0 ${170 * M_PI / 180}"/>
 			<parent link="${name}_link_0"/>
 			<child link="${name}_link_1"/>
-      <axis xyz="0 0 1"/>
+      <axis xyz="0 0 -1"/>
 			<!--<calibration rising="${arm_1_ref}" falling="${arm_1_ref}"/>-->
 			<dynamics damping="1" friction="1" />
 			<!-- damping - N*s/m, N*s*m/rad -->
@@ -79,7 +79,7 @@
 				<geometry>
 					<mesh filename="package://youbot_description/meshes/youbot_arm/arm1.dae" />
 				</geometry>
-				<material name="Orange" />
+				<!--<material name="Orange" />-->
 			</visual>
 			
 			<collision>
