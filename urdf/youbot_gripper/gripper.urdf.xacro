@@ -147,10 +147,12 @@
 		</gazebo>
 
                 <!-- asus xtion camera -->
-<!--		<xacro:asus_xtion_camera name="xtion" tilt="0.0">
-		  <origin xyc="0.00 0.0 0.0" rpy="0 0 0" />
+		<xacro:asus_xtion_camera name="xtion" tilt="0.0">
+                  <!-- AR_CALIBRATOR_START -->
+		  <origin xyz="0.02 -0.03 0.06" rpy="0 0 3.14" />
+                  <!-- AR_CALIBRATOR_END -->
                 </xacro:asus_xtion_camera>
--->
+
 		
 		<!-- extensions -->
 		<xacro:youbot_gripper_gazebo name="${name}" />
