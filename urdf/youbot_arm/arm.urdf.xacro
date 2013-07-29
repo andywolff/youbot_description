@@ -79,7 +79,7 @@
 				<geometry>
 					<mesh filename="package://youbot_description/meshes/youbot_arm/arm1.dae" />
 				</geometry>
-				<material name="Orange" />
+				<!--<material name="Orange" />-->
 			</visual>
 			
 			<collision>
