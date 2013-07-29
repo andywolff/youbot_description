@@ -23,7 +23,7 @@
   <depend package="sensor_msgs"/>
   <depend package="control_msgs"/>
   <depend package="actionlib"/>
-  <depend package="youbot_oodl"/>
+  <depend package="youbot_common"/>
   <depend package="pr2_hardware_interface"/>
   <depend package="pr2_controller_interface"/>
   <depend package="pr2_mechanism_msgs" />

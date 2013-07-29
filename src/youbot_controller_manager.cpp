@@ -99,14 +99,18 @@ int main(int argc, char** argv)
       cm.update();
     }
 
-    if(unloaded == false)
+    if((unloaded == false)&&(ros::ok()))
     {
       timer++;
     }
+
     if(timer == 2000)
     {
       ROS_INFO("Arm Controller loaded.");
     }
+
+    if(!ros::ok())
+      break;
 
 		rate.sleep();
 	}
