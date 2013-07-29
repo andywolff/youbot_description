@@ -73,7 +73,7 @@ namespace controller {
         this->nodeHandle = nodeHandle;
         this->robotPtr = robotPtr;
 
-        ROS_INFO("Initializing joint position control...\n");
+        ROS_INFO("Initializing universal arm control...\n");
 
 
         // Gets all of the joint pointers from the RobotState to a joints vector
@@ -104,7 +104,7 @@ namespace controller {
             joints.push_back(jointStatePtr);
         }
 
-        ROS_WARN("Please make sure you ran youbot_oodl before the controllers!");
+        ROS_WARN("Please make sure you ran youbot_wrapper before the controllers!");
 	      for(unsigned int i = 0; i < joints.size(); i++)
 	      {
 		      ROS_INFO("Setting joint %s as calibrated!", ((std::string)jointNames[i]).c_str());
@@ -153,6 +153,7 @@ namespace controller {
         trajectoryServer = new Server("arm_1/arm_controller/joint_trajectory_action",
                 boost::bind(&YouBotUniversalController::executeActionServer, this, _1, trajectoryServer),
                 false);
+        
         //trajectoryServer->start();
 
         return true;
