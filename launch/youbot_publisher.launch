@@ -32,5 +32,6 @@
 	<include file="$(find youbot_description)/launch/control/youbot_base_control.launch" />
 	<include file="$(find youbot_description)/launch/control/youbot_arm_control.launch" />
 	<include file="$(find youbot_description)/launch/control/youbot_gripper_control.launch" />
+  <node pkg="rosservice" type="rosservice" name="gazebo_pause_physics" args="call --wait /gazebo/pause_physics"/>
 
 </launch>
