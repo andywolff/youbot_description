@@ -12,30 +12,30 @@
 
 	<xacro:macro name="youbot_gripper" params="parent name *origin">
 
-		<!-- joint between arm_7_link and sdh_palm_link -->
-		<joint name="${name}_palm_joint" type="fixed" >
-			<insert_block name="origin" />
+		<!-- joint between arm_link_5 and sdh_palm_link -->
+		<joint name="${name}_palm_joint" type="fixed" >	
+      <insert_block name="origin" />
 			<parent link="${parent}" />
 			<child link="${name}_palm_link" />
 		</joint>
 
 		<link name="${name}_palm_link">
 			<inertial>
-				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<origin xyz="0 0 0" rpy="${M_PI} ${-M_PI / 2}  0"/>
 				<mass value="0.1"/>
 				<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
 			</inertial>
 			
 			<visual>
-				<origin xyz="0 0 0" rpy="0 0 0" />
+				<origin xyz="0 0 0" rpy="${M_PI} ${-M_PI / 2} 0" />
 				<geometry>
 					<mesh filename="package://youbot_description/meshes/youbot_gripper/palm.dae" />
 				</geometry>
-				<material name="youbot/Black" />
+				<material name="Black" />
 			</visual>
 			
 			<collision>
-				<origin xyz="0 0 0" rpy="0 0 0" />
+				<origin xyz="0 0 0" rpy="${M_PI} ${-M_PI / 2} 0" />
 				<geometry>
 					<!--<box size="0.050 0.094 0.054"/>-->
 					<mesh filename="package://youbot_description/meshes/youbot_gripper/palm_convex.dae" />
@@ -57,7 +57,7 @@
 			</visual>
 -->
 			<collision>
-				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<origin xyz="0 0 0" rpy="0 ${-M_PI / 2} 0"/>
 				<geometry>
 					<box size="0.07 0.2 0.06"/>
 				</geometry>
@@ -65,14 +65,14 @@
 		</link>				
 
 		<joint name="${name}_camera_collision_box_joint" type="fixed">
-			<origin xyz="0.05 0 0.02" rpy="0 ${M_PI/2} 0"/>
+			<origin xyz="0 0 0.060" rpy="0 0 0"/>
 			<parent link="${name}_palm_link"/>
 			<child link ="${name}_camera_collision_box_link"/>
-			<axis xyz="0 -1 0"/>
+			<axis xyz="0 1 0"/>
 		</joint>
 		
 		<joint name="${name}_finger_joint_l" type="prismatic">
-			<origin xyz="0.004 0.018 0.046" rpy="0 0 ${M_PI}" />
+			<origin xyz="0.046 0.010 0.003 " rpy="0 ${-M_PI / 2} ${M_PI}" />
 			<parent link="${name}_palm_link"/>
 			<child link="${name}_finger_link_l"/>
 			<axis xyz="0 -1 0" />
@@ -94,7 +94,7 @@
 				<geometry>
 					<mesh filename="package://youbot_description/meshes/youbot_gripper/finger.dae" />
 				</geometry>
-				<material name="youbot/Black" />
+				<material name="Black" />
 			</visual>
 			
 			<collision>
@@ -109,8 +109,8 @@
 			<material>Black</material>
 		</gazebo>
 
-               <joint name="${name}_finger_joint_r" type="prismatic">
-			<origin xyz="0.004 -0.018 0.046" rpy="0 0 0" />
+    <joint name="${name}_finger_joint_r" type="prismatic">
+			<origin xyz="0.046 -0.010 0.003" rpy="0 ${M_PI / 2} 0" />
 			<parent link="${name}_palm_link"/>
 			<child link="${name}_finger_link_r"/>
 			<axis xyz="0 -1 0" />
@@ -131,7 +131,7 @@
 				<geometry>
 					<mesh filename="package://youbot_description/meshes/youbot_gripper/finger.dae" />
 				</geometry>
-				<material name="youbot/Black" />
+				<material name="Black" />
 			</visual>
 			
 			<collision>

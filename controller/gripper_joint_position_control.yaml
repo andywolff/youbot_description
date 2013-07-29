@@ -1,5 +1,5 @@
 gripper_controller:
-  type: youbot_description/JointPositionController
+  type: youbot_description/YouBotUniversalController
   joints:
     - gripper_finger_joint_l
     - gripper_finger_joint_r

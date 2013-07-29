@@ -82,17 +82,19 @@ int main(int argc, char** argv)
 	
 	ROS_INFO("YouBot controller manager starting!");
 
-  pr2_controller_interface::Controller* check = NULL;
+  pr2_controller_interface::Controller* check1 = NULL;
   
 	while (ros::ok()){
 		//ROS_INFO("BEEP");
   
     if(unloaded)
-      check = cm.getControllerByName("arm_1/arm_controller");
+    {
+      check1 = cm.getControllerByName("arm_1/arm_controller");
+    }    
 
     if(timer < 2000)
     {
-      if(check != NULL)
+      if((check1 != NULL))
       {
         unloaded = false;
       } 

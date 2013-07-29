@@ -111,7 +111,7 @@ bool JointPositionController::init(pr2_mechanism_model::RobotState *robotPtr, ro
         joints.push_back(jointStatePtr);
     }
 
-	  ROS_WARN("Please make sure you ran youbot_oodl before the controllers!");
+	  ROS_WARN("Please make sure you ran youbot_wrapper before the controllers!");
 	  for(unsigned int i = 0; i < (unsigned int)joints.size(); i++)
 	  {     
 		  ROS_INFO("Setting joint %s as calibrated!", ((std::string)jointNames[i]).c_str());
