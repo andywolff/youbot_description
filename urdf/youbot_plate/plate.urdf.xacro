@@ -44,7 +44,7 @@
 		<!-- extensions -->
 		<!-- fixed ar marker attached to plate -->
                 <joint name="ar_marker_fixed_joint" type="fixed">
-			<origin xyz="0.025 0 0" rpy="0 0 0" /> <!-- z:0.025 for top of rviz plate -->
+			<origin xyz="0.025 0 0" rpy="0 0 0" />
 			<parent link="${name}_link" />
 			<child link="ar_marker_fixed" />
 		</joint>
