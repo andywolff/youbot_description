@@ -1,9 +1,8 @@
 <?xml version="1.0"?>
 <robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
-       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
-       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-       xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-       name="xtion" >  
+        xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+        xmlns:xacro="http://ros.org/wiki/xacro">
 
   <property name="M_PI" value="3.14159"/>.
 
@@ -31,7 +30,7 @@
 
 
     
-  <xacro:macro name="asus_xtion_camera" params="name *origin tilt">
+  <xacro:macro name="asus_xtion_camera" params="name parent *origin tilt">
 
     <link name="${name}_camera">
       <inertial>
@@ -55,6 +54,12 @@
         </geometry>
       </collision >
     </link>
+
+    <joint name="${parent}_${name}_joint" type="fixed">
+      <insert_block name="origin" />
+      <parent link="${parent}" />
+      <child link="${name}_camera" />
+    </joint>
     
 	<xacro:asus_xtion_eye suffix="depth" parent="${name}">
 		<origin xyz="${eye_x_offset} ${eye_y_offset - 0.02} 0" rpy="0 0 0" />
@@ -86,8 +91,9 @@
 
   </xacro:macro>
 
-  <xacro:asus_xtion_camera name="xtion" tilt="0.0">
+<!--  <xacro:asus_xtion_camera name="xtion" tilt="0.0">
      <origin xyz="0 0 0" rpy="0 0 0" />
   </xacro:asus_xtion_camera>
+-->	
 
 </robot>
