@@ -45,17 +45,8 @@
 		<gazebo reference = "${name}_palm_link">
 			<material>Black</material>
 		</gazebo>
-
-		<link name="${name}_camera_collision_box_link">
 <!--
-			<visual>
-				<origin xyz="0 0 0" rpy="0 0 0"/>
-				<geometry>
-					<box size="0.07 0.2 0.07"/>
-				</geometry>
-				<material name="youbot/Black"/>
-			</visual>
--->
+		<link name="${name}_camera_collision_box_link">
 			<collision>
 				<origin xyz="0 0 0" rpy="0 ${-M_PI / 2} 0"/>
 				<geometry>
@@ -63,14 +54,16 @@
 				</geometry>
 			</collision>
 		</link>				
-
+-->
+<!--
 		<joint name="${name}_camera_collision_box_joint" type="fixed">
 			<origin xyz="0 0 0.060" rpy="0 0 0"/>
 			<parent link="${name}_palm_link"/>
 			<child link ="${name}_camera_collision_box_link"/>
 			<axis xyz="0 1 0"/>
 		</joint>
-		
+-->
+	
 		<joint name="${name}_finger_joint_l" type="prismatic">
 			<origin xyz="0.046 0.010 0.003 " rpy="0 ${-M_PI / 2} ${M_PI}" />
 			<parent link="${name}_palm_link"/>
@@ -148,9 +141,8 @@
 
                 <!-- asus xtion camera -->
 		<xacro:asus_xtion_camera name="xtion" parent="${name}_palm_link" tilt="0.0">
-                  <!-- AR_CALIBRATOR_START -->
-		  <origin xyz="0.02 -0.03 0.06" rpy="0 0 3.14" />
-                  <!-- AR_CALIBRATOR_END -->
+                  <!-- AR_CALIBRATOR:EDIT_HERE -->
+                  <origin xyz="0.0197188 -0.0341838 0.0459352" rpy="0.0201114 0.00763208 3.0937" />
                 </xacro:asus_xtion_camera>
 
 		
@@ -161,3 +153,5 @@
 	</xacro:macro>
 
 </robot>
+
+
